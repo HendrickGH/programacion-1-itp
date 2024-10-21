@@ -53,15 +53,15 @@ while r == "s":
         ext = 0
 
     prenda = int(input("¿Cuántas prendas vendió el trabajador? "))
-    while prenda < 1 or prenda > 200:
-        print("Da un valor correcto de prendas (1 mínimo, 200 máximo)")
+    while prenda < 1 or prenda > 1000:
+        print("Da un valor correcto de prendas (1 mínimo, 1000 máximo)")
         prenda = int(input("¿Cuántas prendas vendió el trabajador? "))
     
     tprendas += prenda
     venta = prenda * 200
     total_ventas += venta
 
-    if venta > 10000 and venta < 20000:
+    if venta > 10000 and venta <= 20000:
         comis = venta * 0.05
     elif venta > 20000:
         comis = venta * 0.07
@@ -88,10 +88,10 @@ while r == "s":
             print(f"El salario subió porque el trabajador vendió más de {venta} en prendas.")
     
     # Mostrar el total de impuestos pagados por el empleado
-    print(f"\nEl salario bruto del empleado {nombre} fue {salbrut}")
-    print(f"El empleado pagó un total de impuestos de {impuesto}")
+    print(f"\nEl salario bruto del empleado {nombre} fue {salbrut:.2f}")
+    print(f"El empleado pagó un total de impuestos de {impuesto:.2f}")
     print("El coste del seguro social es de $100MXN")
-    print(f"El salario neto del trabajador fue {salnet}")
+    print(f"El salario neto del trabajador fue {salnet:.2f}")
     print(f"El total de prendas vendidas por el trabajador fue de {prenda}")
     print(f"El total de ventas del trabajador fue de ${venta}MXN")
 
@@ -101,7 +101,7 @@ while r == "s":
         print(f"Al trabajador {nombre} le faltaron ${diferencia} para alcanzar el bono de productividad por ventas.")
     else:
         print(f"El trabajador {nombre} alcanzó el bono de productividad.")
-        print(f"La comisión que ganó fue de ${comis}MXN.")  # Mostrar la comisión ganada
+        print(f"La comisión que ganó fue de ${comis:.2f}MXN.")  # Mostrar la comisión con 2 decimales
 
     r = input("¿Desea realizar otro cálculo <s/n>? ")
 
@@ -110,8 +110,8 @@ prom_horas_extra = total_horas_extra / trabajadores if trabajadores > 0 else 0
 
 print(f"\nEl total de prendas vendidas por todos los empleados es {tprendas}")
 print(f"El total de ventas por todas las iteraciones es {total_ventas}")
-print(f"El promedio de salarios calculados es {prom}")
-print(f"El promedio de horas extra trabajadas por empleado es {prom_horas_extra}")
+print(f"El promedio de salarios calculados es {prom:.2f}")
+print(f"El promedio de horas extra trabajadas por empleado es {prom_horas_extra:.2f}")
 print(f"El empleado que más horas extra trabajó fue {empleado_max_horas_extra} con {max_horas_extra} horas")
 print(f"El total de horas extra trabajadas fue {total_horas_extra}")
 print(f"El total de dinero en horas extra fue {total_dinero_horas_extra}")
