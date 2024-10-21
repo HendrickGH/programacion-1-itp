@@ -17,6 +17,7 @@
 # Mostrar los trabajadores con ventas mayores a 20000
 # Agregar el total de impuestos pagados por cada empleado y el total de horas extra trabajadas
 # Agregar el total de ventas de cada empleado y cuánto le faltó para alcanzar el bono por vender más de X prendas
+# Mostrar de cuánto fue la comisión cuando alcanzaron el bono.
 
 trabajadores = 0
 salarios = 0
@@ -99,8 +100,9 @@ while r == "s":
         diferencia = limite_bono - venta
         print(f"Al trabajador {nombre} le faltaron ${diferencia} para alcanzar el bono de productividad por ventas.")
     else:
-        print(f"El trabajador {nombre} alcanzó o superó el bono de productividad.")
-    
+        print(f"El trabajador {nombre} alcanzó el bono de productividad.")
+        print(f"La comisión que ganó fue de ${comis}MXN.")  # Mostrar la comisión ganada
+
     r = input("¿Desea realizar otro cálculo <s/n>? ")
 
 prom = salarios / trabajadores
