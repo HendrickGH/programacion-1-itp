@@ -85,35 +85,35 @@ while r == "s":
     # Mensaje de por qué el salario subió si supera lo establecido
     if salbrut > salario_base:
         if venta > 10000:
-            print(f"El salario subió porque el trabajador vendió más de {venta} en prendas.")
+            print("El salario subió porque el trabajador vendió más de ", venta, " en prendas.")
     
     # Mostrar el total de impuestos pagados por el empleado
-    print(f"\nEl salario bruto del empleado {nombre} fue {salbrut:.2f}")
-    print(f"El empleado pagó un total de impuestos de {impuesto:.2f}")
+    print("\nEl salario bruto del empleado ", nombre, " fue ", round(salbrut, 2))
+    print("El empleado pagó un total de impuestos de ", round(impuesto, 2))
     print("El coste del seguro social es de $100MXN")
-    print(f"El salario neto del trabajador fue {salnet:.2f}")
-    print(f"El total de prendas vendidas por el trabajador fue de {prenda}")
-    print(f"El total de ventas del trabajador fue de ${venta}MXN")
+    print("El salario neto del trabajador fue ", round(salnet, 2))
+    print("El total de prendas vendidas por el trabajador fue de ", prenda)
+    print("El total de ventas del trabajador fue de $", venta, "MXN")
 
     # Calcular cuánto le faltó para alcanzar el bono de productividad
     if venta < limite_bono:
         diferencia = limite_bono - venta
-        print(f"Al trabajador {nombre} le faltaron ${diferencia} para alcanzar el bono de productividad por ventas.")
+        print("Al trabajador ", nombre, " le faltaron $", diferencia, " para alcanzar el bono de productividad por ventas.")
     else:
-        print(f"El trabajador {nombre} alcanzó el bono de productividad.")
-        print(f"La comisión que ganó fue de ${comis:.2f}MXN.")  # Mostrar la comisión con 2 decimales
+        print("El trabajador ", nombre, " alcanzó el bono de productividad.")
+        print("La comisión que ganó fue de $", round(comis, 2), "MXN.")  # Mostrar la comisión con 2 decimales
 
     r = input("¿Desea realizar otro cálculo <s/n>? ")
 
 prom = salarios / trabajadores
 prom_horas_extra = total_horas_extra / trabajadores if trabajadores > 0 else 0
 
-print(f"\nEl total de prendas vendidas por todos los empleados es {tprendas}")
-print(f"El total de ventas por todas las iteraciones es {total_ventas}")
-print(f"El promedio de salarios calculados es {prom:.2f}")
-print(f"El promedio de horas extra trabajadas por empleado es {prom_horas_extra:.2f}")
-print(f"El empleado que más horas extra trabajó fue {empleado_max_horas_extra} con {max_horas_extra} horas")
-print(f"El total de horas extra trabajadas fue {total_horas_extra}")
-print(f"El total de dinero en horas extra fue {total_dinero_horas_extra}")
-print(f"Trabajadores con ventas mayores a $20,000: {m20k}")
-print(f"Trabajadores procesados: {trabajadores}")
+print("\nEl total de prendas vendidas por todos los empleados es ", tprendas)
+print("El total de ventas por todas las iteraciones es ", total_ventas)
+print("El promedio de salarios calculados es ", round(prom, 2))
+print("El promedio de horas extra trabajadas por empleado es ", round(prom_horas_extra, 2))
+print("El empleado que más horas extra trabajó fue ", empleado_max_horas_extra, " con ", max_horas_extra, " horas")
+print("El total de horas extra trabajadas fue ", total_horas_extra)
+print("El total de dinero en horas extra fue ", total_dinero_horas_extra)
+print("Trabajadores con ventas mayores a $20,000: ", m20k)
+print("Trabajadores procesados: ", trabajadores)
