@@ -75,10 +75,13 @@ while True:
                 for materia in semestres[num_semestre]:
                     print(f"  Materia: {materia[0]}, Calificación: {materia[1]}, Estado: {materia[2]}")
                 
-                # Preguntar si quiere buscar una materia en ese semestre
-                consulta_materia = input("\n¿Te gustaría buscar una materia en este semestre? (si/no): ").strip().lower()
-                
-                if consulta_materia == "si":
+                # Bucle para buscar varias materias en el mismo semestre
+                while True:
+                    consulta_materia = input("\n¿Te gustaría buscar una materia en este semestre? (si/no): ").strip().lower()
+                    
+                    if consulta_materia != "si":
+                        break
+
                     while True:
                         nombre_materia = input("Ingresa el nombre de la materia (o 'salir' para terminar la búsqueda): ").strip()
                         
@@ -94,9 +97,16 @@ while True:
                                 break
                         
                         if encontrado:
-                            break
+                            # Preguntar si quiere buscar otra materia en el mismo semestre
+                            otra_materia = input("\n¿Te gustaría buscar otra materia en este semestre? (si/no): ").strip().lower()
+                            if otra_materia != "si":
+                                break
                         else:
                             print("  La materia no fue encontrada en este semestre. Inténtalo de nuevo o escribe 'salir' para salir.")
+                    
+                    # Si el usuario escribió "salir" en la búsqueda de materia, salir al menú de semestres
+                    if nombre_materia.lower() == "salir":
+                        break
         else:
             print("Número de semestre fuera de rango.")
     else:
