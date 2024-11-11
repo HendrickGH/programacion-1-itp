@@ -1,5 +1,5 @@
-# Crear una lista de 9 semestres
-semestres = [[] for _ in range(9)]
+# Crear una lista vacía de 9 semestres
+semestres = [list() for _ in range(9)]
 
 # Llenar los semestres con materias
 for i in range(9):
@@ -21,23 +21,20 @@ for i in range(9):
             calificacion_input = input("Calificación de la materia: ").strip()
             
             # Verificar que la calificación sea numérica
-            if calificacion_input.replace(".", "", 1).isdigit():
-                calificacion = float(calificacion_input)
-            else:
-                print("Calificación inválida. Debe ser un número.")
-                continue
+            es_numero = calificacion_input.replace(".", "", 1).isdigit()
+            calificacion = float(calificacion_input) if es_numero else None
 
-            if 0 <= calificacion <= 10:
-                break  # Salir del bucle si la calificación es válida
+            if es_numero and 0 <= calificacion <= 10:
+                break
             else:
-                print("Calificación fuera del rango permitido (0-10). Inténtalo de nuevo.")
+                print("Calificación inválida. Debe ser un número entre 0 y 10. Inténtalo de nuevo.")
 
         # Determinar el estado de la materia (A o N/A)
         estado = "A" if calificacion >= 7 else "N/A"
         
         # Agregar la materia al semestre actual
         materia = [nombre, calificacion, estado]
-        semestres[i].append(materia)
+        semestres[i] = semestres[i] + [materia]  # Añadir la materia como nueva lista sin 'append'
         
         # Si se alcanzan 6 materias en el semestre, avanzar automáticamente
         if len(semestres[i]) == 6:
