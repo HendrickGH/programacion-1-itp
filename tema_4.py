@@ -76,18 +76,27 @@ while True:
                     print(f"  Materia: {materia[0]}, Calificación: {materia[1]}, Estado: {materia[2]}")
                 
                 # Preguntar si quiere buscar una materia en ese semestre
-                consulta_materia = input("\n¿Te gustaría buscar una materia en este semestre? (sí/no): ").strip().lower()
+                consulta_materia = input("\n¿Te gustaría buscar una materia en este semestre? (si/no): ").strip().lower()
                 
-                if consulta_materia == "sí":
-                    nombre_materia = input("Ingresa el nombre de la materia: ").strip()
-                    encontrado = False
-                    for materia in semestres[num_semestre]:
-                        if materia[0].lower() == nombre_materia.lower():
-                            print(f"  Materia encontrada: {materia[0]}, Calificación: {materia[1]}, Estado: {materia[2]}")
-                            encontrado = True
+                if consulta_materia == "si":
+                    while True:
+                        nombre_materia = input("Ingresa el nombre de la materia (o 'salir' para terminar la búsqueda): ").strip()
+                        
+                        if nombre_materia.lower() == "salir":
+                            print("Saliendo de la búsqueda de materia...")
                             break
-                    if not encontrado:
-                        print("  La materia no fue encontrada en este semestre.")
+                        
+                        encontrado = False
+                        for materia in semestres[num_semestre]:
+                            if materia[0].lower() == nombre_materia.lower():
+                                print(f"  Materia encontrada: {materia[0]}, Calificación: {materia[1]}, Estado: {materia[2]}")
+                                encontrado = True
+                                break
+                        
+                        if encontrado:
+                            break
+                        else:
+                            print("  La materia no fue encontrada en este semestre. Inténtalo de nuevo o escribe 'salir' para salir.")
         else:
             print("Número de semestre fuera de rango.")
     else:
