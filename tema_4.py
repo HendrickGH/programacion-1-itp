@@ -54,10 +54,14 @@ for i, semestre in enumerate(semestres, start=1):
         for materia in semestre:
             print(f"  Materia: {materia[0]}, Calificación: {materia[1]}, Estado: {materia[2]}")
 
-# Preguntar si se quiere consultar un semestre específico
-consulta_semestre = input("\n¿Te gustaría consultar un semestre específico? (si/no): ").strip().lower()
+# Consulta de semestres específicos
+while True:
+    consulta_semestre = input("\n¿Te gustaría consultar un semestre específico? (si/no): ").strip().lower()
+    
+    if consulta_semestre != "si":
+        print("Consulta finalizada.")
+        break
 
-if consulta_semestre == "si":
     num_semestre_input = input("Ingresa el número del semestre (1-9): ").strip()
     
     # Verificar si el número de semestre es un entero válido
@@ -88,5 +92,3 @@ if consulta_semestre == "si":
             print("Número de semestre fuera de rango.")
     else:
         print("Entrada inválida, debes ingresar un número entero.")
-else:
-    print("Consulta finalizada.")
