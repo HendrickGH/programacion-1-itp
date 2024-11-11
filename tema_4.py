@@ -29,8 +29,11 @@ for i in range(9):
             else:
                 print("Calificación inválida. Debe ser un número entre 0 y 10. Inténtalo de nuevo.")
 
-        # Determinar el estado de la materia (A o N/A)
-        estado = "A" if calificacion >= 7 else "N/A"
+        # Determinar el estado de la materia (A o N/A) sin usar ternarios
+        if calificacion >= 7:
+            estado = "A"
+        else:
+            estado = "N/A"
         
         # Agregar la materia al semestre actual
         materia = [nombre, calificacion, estado]
