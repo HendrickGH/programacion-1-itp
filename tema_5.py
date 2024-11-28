@@ -2,16 +2,15 @@ import os
 import shutil
 
 # Función para listar archivos en un directorio
-def listar_archivos(directorio):
+def listar_archivos():
+    directorio = os.getcwd()  # Usar el directorio actual
     try:
         archivos = os.listdir(directorio)
-        print(f"Contenido de '{directorio}':")
+        print(f"Contenido del directorio actual ('{directorio}'):")
         for archivo in archivos:
             print(f" - {archivo}")
-    except FileNotFoundError:
-        print("El directorio no existe.")
     except PermissionError:
-        print("No tienes permiso para acceder al directorio.")
+        print("No tienes permiso para acceder al directorio actual.")
 
 # Función para renombrar un archivo (llamada por valor)
 def renombrar_archivo(nombre_original, nuevo_nombre):
@@ -52,8 +51,7 @@ def main():
 
         opcion = input("Selecciona una opción: ")
         if opcion == "1":
-            directorio = input("Ingresa el directorio a listar: ")
-            listar_archivos(directorio)
+            listar_archivos()
         elif opcion == "2":
             original = input("Nombre del archivo a renombrar: ")
             nuevo = input("Nuevo nombre: ")
