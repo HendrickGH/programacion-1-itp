@@ -39,13 +39,6 @@ def copiar_archivo(origen, log_copias):
     else:
         print(f"El archivo '{origen}' no existe.")
 
-# Función para mostrar estadísticas de disco
-def estadisticas_disco():
-    uso_disco = shutil.disk_usage("/")
-    print(f"Espacio total: {uso_disco.total // (1024**3)} GB")
-    print(f"Espacio usado: {uso_disco.used // (1024**3)} GB")
-    print(f"Espacio libre: {uso_disco.free // (1024**3)} GB")
-
 # Programa principal
 def main():
     log_copias = []  # Lista para registrar archivos copiados
@@ -55,8 +48,7 @@ def main():
         print("2. Renombrar archivo")
         print("3. Eliminar archivo")
         print("4. Copiar archivo")
-        print("5. Estadísticas de disco")
-        print("6. Salir")
+        print("5. Salir")
 
         opcion = input("Selecciona una opción: ")
         if opcion == "1":
@@ -74,8 +66,6 @@ def main():
             copiar_archivo(origen, log_copias)
             print("Archivos copiados:", log_copias)
         elif opcion == "5":
-            estadisticas_disco()
-        elif opcion == "6":
             print("Saliendo del programa.")
             break
         else:
