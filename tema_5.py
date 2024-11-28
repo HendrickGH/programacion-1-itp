@@ -30,7 +30,8 @@ def eliminar_archivo(nombre_archivo):
         print(f"El archivo '{nombre_archivo}' no existe.")
 
 # Función para copiar un archivo (llamada por valor y referencia)
-def copiar_archivo(origen, destino, log_copias):
+def copiar_archivo(origen, log_copias):
+    destino = os.path.join(os.getcwd(), os.path.basename(origen))  # Path actual + nombre del archivo
     if os.path.exists(origen):
         shutil.copy(origen, destino)
         print(f"Archivo '{origen}' copiado a '{destino}'.")
@@ -70,8 +71,7 @@ def main():
             eliminar_archivo(archivo)
         elif opcion == "4":
             origen = input("Archivo a copiar: ")
-            destino = input("Destino: ")
-            copiar_archivo(origen, destino, log_copias)
+            copiar_archivo(origen, log_copias)
             print("Archivos copiados:", log_copias)
         elif opcion == "5":
             estadisticas_disco()
